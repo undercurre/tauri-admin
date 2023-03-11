@@ -1,1 +1,1 @@
-export const baseUrl = "http://localhost:7000/backend/";
+export const baseUrl = import.meta.env.VITE_APP_API_URL

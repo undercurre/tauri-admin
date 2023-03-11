@@ -3,11 +3,9 @@ import { createWin } from './build'
 export async function loginWin() {
   createWin('login', {
     title: '登录',
-    url: '/login',
+    url: '/',
     width: 320,
     height: 420,
-    resizable: false,
-    alwaysOnTop: false,
   })
 }
 

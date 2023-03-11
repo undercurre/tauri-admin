@@ -22,10 +22,10 @@
 </template>
 
 <script lang="ts" setup>
-import { defineComponent, ref, defineEmits } from "vue";
+import { defineComponent, ref } from "vue";
 import { FormInst, NInput, NForm, NFormItem, NButton, useMessage } from "naive-ui";
-import { Login } from "../api/user";
-import { mainWin } from "../window";
+import { Login } from "../../api/user";
+import { mainWin } from "../../window";
 
 const message = useMessage();
 

@@ -16,17 +16,20 @@
         />
       </n-layout-sider>
       <n-layout>
-        <span>111内容</span>
+        <router-view></router-view>
       </n-layout>
     </n-layout>
   </n-space>
 </template>
 
 <script lang="ts" setup>
-import { h } from 'vue'
+import { h, ref, watchEffect } from 'vue'
 import { NIcon, NMenu, NLayoutSider, NLayout, NSpace } from 'naive-ui'
 import type { MenuOption } from 'naive-ui'
 import { Person, DocumentTextSharp } from '@vicons/ionicons5'
+import { userStore, missionStore } from '../../store/collection';
+import { useRoute } from 'vue-router';
+import router from '../../router';
 
 const menuOptions: MenuOption[] = [
   {
@@ -44,4 +47,22 @@ function renderMenuIcon (option: MenuOption) {
     if (option.key === 'person')
     return h(NIcon, null, { default: () => h(Person) })
 }
+
+const route = useRoute();
+
+const target = route.fullPath.split('/')[1] || 'workbench';
+
+const activeMenuKey = ref<string>(target);
+
+userStore.info = JSON.parse(
+    localStorage.getItem('info') ||
+        '{"email":"","phone":"","roleIds":"","userId":0,"username":"未登录"}',
+);
+
+missionStore.updateMission()
+
+watchEffect(() => {
+    router.push(activeMenuKey.value);
+		missionStore.updateMission()
+});
 </script>

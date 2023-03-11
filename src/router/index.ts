@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import { loginWin } from '../window'
+import moduleRouters from './module'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -10,7 +11,8 @@ const routes: Array<RouteRecordRaw> = [
       keepAlive: true,
       requireAuth: true,
     },
-    component: () => import('../view/home.vue'),
+    component: () => import('../view/home/home.vue'),
+    children: moduleRouters,
   },
   {
     path: '/login',
@@ -20,7 +22,7 @@ const routes: Array<RouteRecordRaw> = [
       keepAlive: true,
       requireAuth: true,
     },
-    component: () => import('../view/Login.vue'),
+    component: () => import('../view/login/login.vue'),
   },
 ]
 
