@@ -1,4 +1,4 @@
-export default {
+const defaultConfig = {
   title: '', // 窗口标题
   url: '', // 路由地址url
   width: 900, // 窗口宽度
@@ -8,6 +8,8 @@ export default {
   center: true, // 窗口居中显示
   resizable: true, // 是否支持缩放
   maximized: false, // 最大化窗口
-  decorations: false, // 窗口是否无边框及导航条
+  decorations: true, // 窗口是否无边框及导航条
   alwaysOnTop: false, // 置顶窗口
 }
+
+export default defaultConfig

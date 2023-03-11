@@ -10,7 +10,7 @@ const routes: Array<RouteRecordRaw> = [
       keepAlive: true,
       requireAuth: true,
     },
-    component: () => import('../view/Mission.vue'),
+    component: () => import('../view/home.vue'),
   },
   {
     path: '/login',
