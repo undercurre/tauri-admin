@@ -39,7 +39,8 @@ router.beforeEach((to, from, next) => {
       next()
     } else {
       // 否则直接跳转登录界面
-      loginWin()
+      router.push('./login')
+      // loginWin()
     }
   } else {
     // 如果有则放行

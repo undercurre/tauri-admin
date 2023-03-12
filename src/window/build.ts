@@ -17,6 +17,7 @@ export async function createWin(label: string, options: WindowOptions) {
 
   // 创建窗口对象
   const win = new WebviewWindow(label, args)
+
   // 是否最大化
   if (args.maximized && args.resizable) {
     win.maximize()

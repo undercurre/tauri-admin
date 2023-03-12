@@ -8,6 +8,7 @@
         :width="64"
       >
         <n-menu
+          v-model:value="activeMenuKey"
           :collapsed="true"
           :collapsed-width="64"
           :collapsed-icon-size="22"
@@ -50,7 +51,7 @@ function renderMenuIcon (option: MenuOption) {
 
 const route = useRoute();
 
-const target = route.fullPath.split('/')[1] || 'workbench';
+const target = route.fullPath.split('/')[1] || 'mission';
 
 const activeMenuKey = ref<string>(target);
 

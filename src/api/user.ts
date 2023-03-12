@@ -29,7 +29,7 @@ export async function Register(
 
 export async function Login(username: string, password: string) {
   const res = await get<{ token: string; info: { [key: string]: any } }>(
-    baseUrl + 'login',
+    import.meta.env.VITE_APP_API_URL + 'backend/' + 'login',
     {
       username: username,
       password: password,

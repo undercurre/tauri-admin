@@ -3,6 +3,8 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 
 export default [
@@ -32,7 +34,12 @@ export default [
     include: [/\.vue$/, /\.vue\?vue/], // 扫描范围
     resolvers: [
       NaiveUiResolver(), // PC端UI库
+      IconsResolver({ customCollections: ['custom'] }),
     ], // ui库解析器
     dts: './src/types/components.d.ts', // 要生成相应的类，不然过不了ts
+  }),
+  Icons({
+    compiler: 'vue3', // 适应vue3依赖
+    autoInstall: true, // 自动安装
   }),
 ]

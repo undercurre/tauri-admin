@@ -10,7 +10,18 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Greet: typeof import('./../components/Greet.vue')['default']
+    'ILineMd:coffeeLoop': typeof import('~icons/line-md/coffee-loop')['default']
+    NCard: typeof import('naive-ui')['NCard']
+    NCountdown: typeof import('naive-ui')['NCountdown']
+    NDescriptions: typeof import('naive-ui')['NDescriptions']
+    NDescriptionsItem: typeof import('naive-ui')['NDescriptionsItem']
+    NEmpty: typeof import('naive-ui')['NEmpty']
+    NGi: typeof import('naive-ui')['NGi']
+    NGradientText: typeof import('naive-ui')['NGradientText']
+    NGrid: typeof import('naive-ui')['NGrid']
+    NSwitch: typeof import('naive-ui')['NSwitch']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Tabbar: typeof import('./../components/tabbar.vue')['default']
   }
 }

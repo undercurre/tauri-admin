@@ -1,24 +1,52 @@
 <template>
-  <n-form
-    ref="formRef"
-    :label-width="80"
-    :model="formValue"
-    :rules="rules"
-    label-placement="top"
-    size="medium"
+  <div
+    class="w-full h-full bg-gradient-to-r from-white via-gray to-black flex flex-col items-center"
   >
-    <n-form-item label="username" path="user.name">
-      <n-input v-model:value="formValue.user.name" placeholder="输入姓名" />
-    </n-form-item>
-    <n-form-item label="password" path="user.password">
-      <n-input v-model:value="formValue.user.password" placeholder="输入密码" />
-    </n-form-item>
-    <n-form-item>
-      <n-button attr-type="button" @click="handleValidateClick">
-        验证
-      </n-button>
-    </n-form-item>
-  </n-form>
+    <div class="w-full flex justify-center items-center">
+      <i-line-md:coffee-loop
+        class="w-100px h-100px bg-black text-white rounded-full p-10px box-border"
+      />
+      <n-gradient-text
+        :size="80"
+        :gradient="{
+                        deg: 270,
+                        from: 'rgb(37, 23, 73)',
+                        to: 'rgb(73, 85, 121)',
+                    }"
+      >
+        Metu
+      </n-gradient-text>
+    </div>
+    <n-form
+      ref="formRef"
+      :label-width="80"
+      :model="formValue"
+      :rules="rules"
+      label-placement="top"
+      size="medium"
+      class="w-200px"
+    >
+      <n-form-item label="username" path="user.name" class="w-200px">
+        <n-input v-model:value="formValue.user.name" placeholder="输入姓名" />
+      </n-form-item>
+      <n-form-item label="password" path="user.password" class="w-200px">
+        <n-input
+          v-model:value="formValue.user.password"
+          placeholder="输入密码"
+        />
+      </n-form-item>
+      <n-form-item class="flex justify-center">
+        <n-button
+          class="w-200px"
+          type="info"
+          attr-type="button"
+          @click="handleValidateClick"
+        >
+          submit
+        </n-button>
+      </n-form-item>
+    </n-form>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -26,6 +54,9 @@ import { defineComponent, ref } from "vue";
 import { FormInst, NInput, NForm, NFormItem, NButton, useMessage } from "naive-ui";
 import { Login } from "../../api/user";
 import { mainWin } from "../../window";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const message = useMessage();
 
@@ -60,7 +91,8 @@ function handleValidateClick(e: MouseEvent) {
       const info = loginRes.data.info;
       localStorage.setItem('token', token);
       localStorage.setItem('info', JSON.stringify(info));
-      mainWin();
+      router.push('./')
+      // mainWin();
     } else {
       message.error('登录失败');
     }

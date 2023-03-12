@@ -3,7 +3,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 const moduleRoutes: Array<RouteRecordRaw> = [
   {
     name: 'personal',
-    path: '/personal',
+    path: '/person',
     meta: {
       title: '个人主页',
     },
