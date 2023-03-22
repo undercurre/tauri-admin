@@ -2,13 +2,13 @@
   "build": {
     "beforeDevCommand": "pnpm dev",
     "beforeBuildCommand": "pnpm build",
-    "devPath": "http://localhost:1520",
+    "devPath": "http://localhost:6999",
     "distDir": "../dist",
     "withGlobalTauri": false
   },
   "package": {
     "productName": "tauri-app-vue",
-    "version": "0.0.0"
+    "version": "0.0.1"
   },
   "tauri": {
     "allowlist": {
