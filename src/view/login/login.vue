@@ -86,6 +86,7 @@ function handleValidateClick(e: MouseEvent) {
   formRef.value?.validate(async (errors: any) => {
     if (!errors) {
       const loginRes = await Login(formValue.value.user.name, formValue.value.user.password);
+      console.log(loginRes)
       message.success('登录成功');
       const token = loginRes.data.token;
       const info = loginRes.data.info;

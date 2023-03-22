@@ -52,6 +52,7 @@ const handleNetworkError = (errStatus: any) => {
 
 const handleAuthError = (errno: number) => {
   const authErrMap: any = {
+    '-99': '登录失效，需要重新登录',
     '-401': '登录失效，需要重新登录', // token 失效
     '10032': '您太久没登录，请重新登录~', // token 过期
     '10033': '账户未绑定角色，请联系管理员绑定角色',

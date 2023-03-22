@@ -19,6 +19,12 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "http":{
+        "scope":[
+          "http://**",
+          "https://**"
+        ]
       }
     },
     "bundle": {

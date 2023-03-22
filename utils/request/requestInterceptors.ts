@@ -1,32 +1,11 @@
-import axios, { AxiosRequestConfig } from 'axios'
-import handleError from './handleError'
-
-const handleRequestHeader = (config: AxiosRequestConfig<any>) => {
-  return config
+export interface RequestHeaders {
+  Authorization: string
+  [key: string]: unknown
 }
 
-const handleAuth = (config: AxiosRequestConfig<any>) => {
-  if (!config) {
-    config = {}
+export function getDefaultHeaders() {
+  const headers: RequestHeaders = {
+    Authorization: `Bearer ${localStorage.getItem('token') || ''}`,
   }
-  if (!config.headers) {
-    config.headers = {}
-  }
-  const token = '123'
-  config.headers['Authorization'] = `Bearer ${
-    localStorage.getItem('token') || token || ''
-  }`
-  return config
+  return headers
 }
-
-axios.interceptors.request.use(
-  (config: any) => {
-    config = handleRequestHeader(config)
-    config = handleAuth(config)
-    return config
-  },
-  (err) => {
-    handleError.handleGeneralError('-1', err)
-    Promise.reject(err)
-  }
-)

@@ -1,8 +1,6 @@
 import axios from 'axios'
 import handleError from './handleError'
 
-const router = useRouter()
-
 axios.interceptors.response.use(
   (response) => {
     //
