@@ -2,13 +2,13 @@
   "build": {
     "beforeDevCommand": "pnpm dev",
     "beforeBuildCommand": "pnpm build",
-    "devPath": "http://localhost:6999",
+    "devPath": "http://localhost:7000 ",
     "distDir": "../dist",
     "withGlobalTauri": false
   },
   "package": {
     "productName": "tauri-app-vue",
-    "version": "0.0.1"
+    "version": "0.0.3"
   },
   "tauri": {
     "allowlist": {
@@ -19,6 +19,14 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "http": {
+        "all": true,
+        "request": true,
+        "scope":[
+          "http://81.71.85.68:8086/api/*",
+          "https://www.metu.asia/test/*"
+        ]
       }
     },
     "bundle": {
