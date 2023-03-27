@@ -86,18 +86,6 @@ function handleValidateClick(e: MouseEvent) {
   e.preventDefault();
   formRef.value?.validate(async (errors: any) => {
     if (!errors) {
-      const loginRes2 = await http.fetch('http://81.71.85.68:8086/api/backend/login', {
-          headers:{
-              Authorization: 'Bearer test'
-          },
-          method: 'GET',
-          // *** 注意：get请求的参数值必须为字符串，不然tauri会报错，这是tauri框架的要求；可以自己手动进行字符串强制转换 ***
-          query: {
-            username: 'lirh3333',
-            password: '123456'
-          }
-      })
-      console.log(loginRes2)
       const loginRes = await Login(formValue.value.user.name, formValue.value.user.password);
       message.success('登录成功');
       const token = loginRes.data.token;

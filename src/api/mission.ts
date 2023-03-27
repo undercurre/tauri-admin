@@ -1,5 +1,5 @@
 import { baseUrl } from './base'
-import { post, get } from '../../utils/request'
+import { post, get } from '../../utils/http'
 
 const moduleUrl = baseUrl + 'backend/mission/'
 
